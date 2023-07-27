@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "myApp": {
+      "commandName": "Project",
+      "commandLineArgs": "1"
+    }
+  }
+}
