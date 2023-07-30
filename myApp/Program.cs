@@ -64,7 +64,7 @@ namespace myApp
                     // 1. Создание таблицы Person {Id int primary key, Fullname: nvarchar(50), Date_birthday: date, Gender: nvarchar(6)}
                     // Пример входных данных: myApp 1
                     case "1":
-                        // Вызываем метод, который создает таблицу Person и возвращает bool-значение в зависимости от результата
+                        // Вызываем метод, который создает/пересоздает таблицу Person и возвращает bool-значение в зависимости от результата
                         if (ServiceClass.CreateTable()) Console.WriteLine("Таблица Person успешно создана!");
                         else throw new Exception("Не удалось создать таблицу!");
                         break;
@@ -115,14 +115,7 @@ namespace myApp
                         // Вызываем метод, который выполняет запрос на выборку данных и возвращает объект DataTable
                         var tuple = ServiceClass.SelectLikeRecords();
 
-                        if (tuple.table != null)
-                        {
-                            // Вывод данных в консоль
-                            //foreach (DataRow row in tuple.table.Rows)
-                            //    Console.WriteLine("{0, -10} {1, -30} {2, -20} {3, 0}", row[0], row[1], " " + ((DateTime)row[2]).ToShortDateString(), row[3]);
-
-                            Console.WriteLine($"~ Время выполнения запроса: {tuple.time} ms; Количество строк: {tuple.table.Rows.Count}");
-                        }
+                        if (tuple.table != null) Console.WriteLine($"~ Время выполнения запроса: {tuple.time} ms; Количество строк: {tuple.table.Rows.Count}");
                         else throw new NullReferenceException(nameof(tuple));
                         break;
 
@@ -142,7 +135,7 @@ namespace myApp
                         throw new ArgumentException(nameof(args));
                 }
             }
-            // Выбрасываем exсeption, т.к. отсутствует параметр командной строки 
+            // Выбрасываем exсeption, т.к. отсутствуют входные параметры args
             else throw new ArgumentNullException(nameof(args));
         }
     }
