@@ -1,1 +1,0 @@
-Data Source=DESKTOP-2U1B2GA\SQLEXPRESS;Database=myAppDB;Integrated Security=True;Encrypt=False;

@@ -2,7 +2,7 @@
   "profiles": {
     "myApp": {
       "commandName": "Project",
-      "commandLineArgs": "1"
+      "commandLineArgs": "6"
     }
   }
 }
